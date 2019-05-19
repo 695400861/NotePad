@@ -635,7 +635,9 @@ public class OutputText extends Activity {
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 ```
 ```
+
 ![Image](https://raw.githubusercontent.com/695400861/NotePad/master/image/5.png)
+
 
 ![Image](https://raw.githubusercontent.com/695400861/NotePad/master/image/6.png)
 
