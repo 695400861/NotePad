@@ -70,6 +70,7 @@ insert():
 ![1](https://raw.githubusercontent.com/FOOLBUTDILIGENT/images/master/Note/1.png)
 
 2.搜索功能
+
 (1)在list_options_menu.xml中添加item，在NoteList中找到onOptionsItemSelected方法，在switch中添加搜索的case语句:
 ```
 list_options_menu.xml:
