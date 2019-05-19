@@ -2,6 +2,7 @@
 1.增加时间戳显示
 
 (1)添加一个TextView:
+
 <LinearLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation = "vertical"
