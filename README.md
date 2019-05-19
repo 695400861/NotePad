@@ -1,8 +1,6 @@
 # NotePad
-This is an AndroidStudio rebuild of google SDK sample NotePad
-功能实现一：时间戳
-首先给notelist_item.xml文件加一个线性布局，再在其中加入时间的TextView布局
-```
+1.增加时间戳显示
+(1)添加一个TextView:
 <LinearLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation = "vertical"
@@ -26,9 +24,8 @@ This is an AndroidStudio rebuild of google SDK sample NotePad
         android:textSize="20sp"
         />
 </LinearLayout>
-```
-然后在数据库中新增一个字段，用来存时间字段
-```
+（2）在数据库中新增一个字段，用来存时间字段
+
  @Override
        public void onCreate(SQLiteDatabase db) {
            db.execSQL("CREATE TABLE " + NotePad.Notes.TABLE_NAME + " ("
@@ -41,7 +38,7 @@ This is an AndroidStudio rebuild of google SDK sample NotePad
                    + ");");
        }
 ```
-之后在Notelist.java中修改PROJECTION，dataColumns，viewIDs
+（3）Notelist.java
 ```
 private static final String[] PROJECTION = new String[] {
             NotePad.Notes._ID, // 0
@@ -52,7 +49,7 @@ private static final String[] PROJECTION = new String[] {
 private String[] dataColumns = { NotePad.Notes.COLUMN_NAME_TITLE ,  NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE } ;
 private int[] viewIDs = { android.R.id.text1 , R.id.text2 };
 ```
-修改NotePadProvider中的insert方法和NoteEditor中的updateNote方法
+（4）NotePadProvider.java
 ```
 updateNote()：
         ContentValues values = new ContentValues();
@@ -70,8 +67,8 @@ insert():
 运行效果:
 ![1](https://raw.githubusercontent.com/FOOLBUTDILIGENT/images/master/Note/1.png)
 
-功能实现二:搜索功能
-首先，在list_options_menu.xml中添加item，在NoteList中找到onOptionsItemSelected方法，在switch中添加搜索的case语句:
+2.搜索功能
+(1)在list_options_menu.xml中添加item，在NoteList中找到onOptionsItemSelected方法，在switch中添加搜索的case语句:
 ```
 list_options_menu.xml:
  <item
@@ -88,7 +85,7 @@ onOptionsItemSelected()：
                 NotesList.this.startActivity(intent);
                 return true;
 ```
-然后,创建NoteSearch的Activity，并编写:
+(2)创建NoteSearch的Activity
 ```
 note_search.xml：
 <?xml version="1.0" encoding="utf-8"?>
@@ -191,7 +188,7 @@ public class NoteSearch extends ListActivity implements SearchView.OnQueryTextLi
     }
 }
 ```
-最后在AndroidManifest.xml注册NoteSearch
+(3)在AndroidManifest.xml注册NoteSearch
 ```
  <activity
             android:name=".NoteSearch"
@@ -212,23 +209,9 @@ public class NoteSearch extends ListActivity implements SearchView.OnQueryTextLi
 ![2](https://raw.githubusercontent.com/FOOLBUTDILIGENT/images/master/Note/2.png)
 
 
-实现功能三:UI美化
-将主背景设置为白色，将大部分功能用中文表达
-![3](https://raw.githubusercontent.com/FOOLBUTDILIGENT/images/master/Note/4(1).png)
-![4](https://raw.githubusercontent.com/FOOLBUTDILIGENT/images/master/Note/4(2).png)
 
-实现功能四:改变背景颜色
-1.在NotePad类中添加字段
-2.数据库中添加相应字段，并在NotePadProvider中添加对其相应的处理
-3.建立新的Activity--MyCurcorAdapter
-4.修改NoteList中的PROJECTION，将所用的SimpleCursorAdapter适配器改为MyCurcorAdapter
-5.在PROJECTION中添加颜色项
-6.修改NoteEditor类中的onResume()
-7.在editor_options_menu.xml中添加选项
-8.修改NoteEditor中的onOptionsItemSelected()方法
-9.NoteEditor中添加函数changeColor()
-10.新建activitynotecolor
-11.在AndroidManifest.xml增加activity
+3.改变背景颜色
+
 ```
 NotePad.java
 public static final String COLUMN_NAME_BACK_COLOR = "color";
@@ -494,12 +477,8 @@ AndroidManifest.xml
 ![5.2](https://raw.githubusercontent.com/FOOLBUTDILIGENT/images/master/Note/5(2).png)
 
 
-实现功能五：导出记事本
-1.先在菜单文件editor_options_menu.xml中添加一个导出笔记的选项
-2.在NoteEditor中修改onOptionsItemSelected()方法
-3.在NoteEditor中添加函数outputNote()
-4.新建布局output_text.xml，垂直线性布局放置EditText和Button，并创建OutputText的Acitvity，用来选择颜色
-5.在AndroidManifest.xml中注册
+4.导出记事本
+
 ```
 <item android:id="@+id/menu_output"
     android:title="@string/menu_output" />
