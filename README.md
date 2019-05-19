@@ -68,8 +68,9 @@ insert():
         String dateTime = format.format(date);
 ```
 运行效果:
+```
 ![Image](https://raw.githubusercontent.com/695400861/NotePad/master/image/1.png)
-
+```
 2.搜索功能
 
 (1)在list_options_menu.xml中添加item，在NoteList中找到onOptionsItemSelected方法，在switch中添加搜索的case语句:
@@ -210,8 +211,9 @@ public class NoteSearch extends ListActivity implements SearchView.OnQueryTextLi
         </activity>
 ```
 效果图:
+```
 ![Image](https://raw.githubusercontent.com/695400861/NotePad/master/image/2.png)
-
+```
 
 
 3.改变背景颜色
