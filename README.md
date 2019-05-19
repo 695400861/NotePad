@@ -479,10 +479,12 @@ AndroidManifest.xml
             android:theme="@android:style/Theme.Holo.Light.Dialog"
             android:windowSoftInputMode="stateVisible" />
 ```
+```
 ![Image](https://raw.githubusercontent.com/695400861/NotePad/master/image/3.png)
 
-![Image](https://raw.githubusercontent.com/695400861/NotePad/master/image/4.png)
 
+![Image](https://raw.githubusercontent.com/695400861/NotePad/master/image/4.png)
+```
 4.导出记事本
 
 ```
@@ -632,6 +634,8 @@ public class OutputText extends Activity {
     <!-- 向SD卡写入数据权限 -->
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 ```
+```
 ![Image](https://raw.githubusercontent.com/695400861/NotePad/master/image/5.png)
+
 ![Image](https://raw.githubusercontent.com/695400861/NotePad/master/image/6.png)
 
