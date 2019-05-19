@@ -25,6 +25,7 @@
         android:textSize="20sp"
         />
 </LinearLayout>
+
 （2）在数据库中新增一个字段，用来存时间字段
 
  @Override
